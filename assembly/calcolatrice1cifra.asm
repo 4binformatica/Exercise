@@ -68,8 +68,7 @@ start:
     int 21h
     ;-------
     
-    
-    
+
     
     ;addizione
     mov dl, n1

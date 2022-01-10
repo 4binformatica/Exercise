@@ -147,7 +147,7 @@ start:
     mov ah, 2
 	mov dl, divvi
 	int 21h         
-	    ;il programma va a capo
+	;il programma va a capo
     mov ah, 2
     mov dx, 10
     int 21h

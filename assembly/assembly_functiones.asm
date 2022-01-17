@@ -1,5 +1,5 @@
     ;double number print
-    mov al, molli
+    mov al, ;number to print
     mov ah, 0
     mov cl, 10
     div cl

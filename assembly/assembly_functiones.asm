@@ -13,3 +13,21 @@
     mov ah, 02h
     mov dl, bh 
     int 21h    
+
+
+    ;double number request
+    mov ax, data
+    mov ds, ax
+    mov es, ax
+
+    mov ah, 01h
+    int 21h
+    sub al, 48
+    mov bl, 10
+    mul bl
+    mov bl, al
+    mov ah, 01h
+    int 21h
+    sub al, 48
+    add al, bl
+    ;number in al

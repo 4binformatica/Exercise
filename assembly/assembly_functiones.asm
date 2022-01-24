@@ -16,9 +16,6 @@
 
 
     ;double number request
-    mov ax, data
-    mov ds, ax
-    mov es, ax
 
     mov ah, 01h
     int 21h

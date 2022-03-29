@@ -119,6 +119,6 @@ input_fine:
     pop ax
     ret
      
-
+input endp
  
 end start ; set entry point and stop the assembler.

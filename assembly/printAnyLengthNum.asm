@@ -18,9 +18,7 @@ start:
     mov es, ax
 
     
-    mov ax, -7054
-    mov cx, 0
-    xor bx,bx
+    call input
     call stampaln
     
            
@@ -37,7 +35,8 @@ start:
 ends
      
 ; put in ax the number u wanna print out  
-stampaln proc 
+stampaln proc
+    mov cx, 0 
 stampaln_startf:
     cmp ax, 0       
     jg stampaln_continue
@@ -78,6 +77,48 @@ stampaln_neg:
     jmp stampaln_startf
     
 
-stampaln endp     
+stampaln endp
+
+
+
+;request a endless number that is stored in ax
+input proc  
+    mov ax, 0
+input_start: 
+    mov dx, ax
+    mov ah, 01h
+    int 21h
+    sub al, 48
+    cmp al, 0
+    jl input_fine
+    cmp al, 9
+    jg input_fine
+    mov ah, 0
+    
+    
+    ;il carattere e' un numero
+    push ax
+    mov ax, dx
+    mov dx, 10
+    mul dx
+    pop dx
+    add ax, dx
+    jmp input_start
+     
+    
+    
+    
+input_fine:
+    push dx
+    mov dl, 10
+    mov ah, 02h
+    int 21h 
+    mov dl, 13
+    mov ah, 02h
+    int 21h
+    pop ax
+    ret
+     
+
  
 end start ; set entry point and stop the assembler.
